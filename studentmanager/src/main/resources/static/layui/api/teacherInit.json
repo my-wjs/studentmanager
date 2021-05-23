@@ -1,0 +1,73 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "welcome"
+  },
+  "logoInfo": {
+    "title": "学生选课系统",
+    "image": "../static/layui/images/logo-3.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "常规管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "信息查询",
+          "href": "",
+          "icon": "fa fa-bullseye",
+          "target": "_self",
+          "child": [
+            {
+              "title": "学生信息",
+              "href": "stuInfo_2",
+              "icon": "fa fa-user",
+              "target": "_self"
+            },
+            {
+              "title": "学生成绩信息",
+              "href": "scoreInfo",
+              "icon": "fa fa-table",
+              "target": "_self"
+            },
+            {
+              "title": "教师个人信息",
+              "href": "teacherInfo",
+              "icon": "fa fa-user",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "课程信息管理",
+          "href": "",
+          "icon": "fa fa-bullseye",
+          "target": "_self",
+          "child": [
+            {
+              "title": "课程信息",
+              "href": "courseInfo",
+              "icon": "fa fa-user",
+              "target": "_self"
+            },
+            {
+              "title": "选课信息",
+              "href": "selectCourseInfo",
+              "icon": "fa fa-user",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "系统设置",
+          "href": "page/welcome-6.html",
+          "icon": "fa fa-gears",
+          "target": "_self"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../static/layui/lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../static/layui/css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-form layuimini-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label required">学生学号</label>
+        <div class="layui-input-block">
+            <input type="text" name="username" lay-verify="required" lay-reqtext="学号不能为空" placeholder="请输入学生学号"
+                   autocomplete="off" value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">学生姓名</label>
+        <div class="layui-input-block">
+            <input type="text" name="s_name" lay-verify="required" lay-reqtext="姓名不能为空" placeholder="请输入学生姓名" value=""
+                   autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item ">
+        <label class="layui-form-label required">密码</label>
+        <div class="layui-input-block">
+            <input type="password" name="password" lay-verify="required" lay-reqtext="密码不能为空" placeholder="请输入密码"
+                   value="" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">性别</label>
+        <div class="layui-input-block">
+            <input type="radio" name="sex" value="男" title="男" checked="">
+            <input type="radio" name="sex" value="女" title="女">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属院系</label>
+        <div class="layui-input-block">
+            <input type="college" name="sCollege" placeholder="请输入所属院系" value="" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属专业</label>
+        <div class="layui-input-block">
+            <input type="professional" name="sProfessional" placeholder="请输入所属专业" autocomplete="off" value=""
+                   class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">所属班级</label>
+        <div class="layui-input-block">
+            <input type="clssid" name="classId" placeholder="请输入所属班级" value="" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <button class="layui-btn" lay-filter="update" lay-submit="">确认添加</button>
+    </div>
+</div>
+</div>
+<script src="../static/layui/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script>
+    layui.use(['form', 'layer'], function () {
+        $ = layui.jquery;
+        var form = layui.form,
+            layer = layui.layer;
+        //监听提交
+        form.on('submit(update)', function (data) {
+            var studentjson = JSON.stringify(data.field);
+            var studentdata = JSON.parse(studentjson);
+            if (studentdata.username == '') {
+                layer.msg('学号不能为空');
+                return false;
+            }
+            if (studentdata.s_name == '') {
+                layer.msg('学生姓名不能为空');
+                return false;
+            }
+            if (studentdata.password == '') {
+                layer.msg('密码不能为空');
+                return false;
+            }
+            if (studentdata.sCollege == '') {
+                layer.msg('院系不能为空');
+                return false;
+            }
+            if (studentdata.sProfessional == '') {
+                layer.msg('专业不能为空');
+                return false;
+            }
+            if (studentdata.classId == '') {
+                layer.msg('班级不能为空');
+                return false;
+            }
+            console.log(studentdata)
+            $.ajax({
+                type: "post",
+                url: "addStudent",
+                data: data.field,
+                dataType: "json",
+                success: function (data) {
+                    var msg1 = "添加成功！";
+                    var msg2 = "添加失败！";
+                    if (data.success) {
+                        layer.alert(msg1.fontcolor("green"));
+                        setTimeout(function () {
+                            top.location.href = "index";
+                        }, 2000)
+                    } else {
+                        layer.alert(msg2.fontcolor("red"));
+                        setTimeout(function () {
+                            top.location.href = "addStudent"
+                        }, 2000);
+                    }
+                }
+            });
+            return false;
+        });
+
+    });
+</script>
+</body>
+</html>

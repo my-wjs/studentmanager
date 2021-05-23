@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../static/layui/lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../static/layui/css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<form action="addCourse" method="post">
+    <div class="layui-form layuimini-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">课程编号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="c_no" lay-verify="c_no" value="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">课程名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="c_name" lay-verify="c_name" value="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">课程信息</label>
+            <div class="layui-input-inline">
+                <input type="text" name="c_information" lay-verify="c_information" value="" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">课程数量</label>
+            <div class="layui-input-inline">
+                <input type="text" name="c_num" lay-verify="c_num" value="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label"></label>
+            <button class="layui-btn" lay-filter="update" lay-submit="">确认添加</button>
+        </div>
+    </div>
+    </div>
+</form>
+<script src="../static/layui/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script>
+    layui.use(['form', 'layer'], function () {
+        $ = layui.jquery;
+        var form = layui.form,
+            layer = layui.layer;
+
+        //监听提交
+        form.on('submit(update)', function (data) {
+            var coursejson = JSON.stringify(data.field);
+            var coursedata = JSON.parse(coursejson);
+            if (coursedata.c_name == '') {
+                layer.msg('课程名称不能为空');
+                return false;
+            }
+            if (coursedata.c_information == '') {
+                layer.msg('课程信息不能为空');
+                return false;
+            }
+            if (coursedata.c_num == '') {
+                layer.msg('课程数量不能为空');
+                return false;
+            }
+            console.log(coursedata)
+            $.ajax({
+                type: "post",
+                url: "addScore",
+                data: data.field,
+                dataType: "json",
+                success: function (data) {
+                    var msg1 = "添加成功！";
+                    var msg2 = "添加失败！";
+                    if (data.success) {
+                        layer.alert(msg1.fontcolor("green"));
+                        setTimeout(function () {
+                            top.location.href = "index";
+                        }, 2000)
+                    } else {
+                        layer.alert(msg2.fontcolor("red"));
+                        setTimeout(function () {
+                            top.location.href = "addCourse"
+                        }, 2000);
+                    }
+                }
+            });
+            return false;
+        });
+
+    });
+</script>
+</body>
+</html>

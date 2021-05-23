@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.studentmanager.mapper.TeacherMapper">
+    <select id="findByTeacher" resultType="com.studentmanager.entity.Teacher">
+        select * from teacher where username=#{username} and password=#{password}
+    </select>
+
+    <update id="editPassword" parameterType="Teacher">
+        update teacher set password = #{password} where id = #{id}
+    </update>
+
+    <insert id="addTeacher" parameterType="Teacher">
+        insert into teacher(username,name,password,sex,tcollege,tprofessional,classid)
+        values (#{username},#{name},#{password},#{sex},#{tCollege},#{tProfessional},#{classId})
+    </insert>
+
+    <select id="queryList" resultType="com.studentmanager.entity.Teacher">
+        select * from teacher order by id limit #{start},#{pagesize}
+    </select>
+    <select id="tCount" resultType="Integer">
+        select count(id) from teacher
+    </select>
+    <select id="findTeacherByName" resultType="com.studentmanager.entity.Teacher">
+        select * from teacher where name like CONCAT(CONCAT('%',#{arg0}),'%') limit #{arg1},#{arg2}
+    </select>
+</mapper>

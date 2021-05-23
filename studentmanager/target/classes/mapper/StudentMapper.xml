@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.studentmanager.mapper.StudentMapper">
+    <select id="findByStudent" resultType="com.studentmanager.entity.Student">
+        select * from student where username=#{username} and password=#{password}
+    </select>
+
+    <update id="editPassword" parameterType="Student">
+        update student set password = #{password} where id = #{id}
+    </update>
+
+    <insert id="addStudent" parameterType="Student">
+        insert into student(username,s_name,password,sex,scollege,sprofessional,classid)
+        values (#{username},#{s_name},#{password},#{sex},#{sCollege},#{sProfessional},#{classId})
+    </insert>
+
+    <select id="queryList" resultType="com.studentmanager.entity.Student">
+        select * from student order by id limit #{start},#{pagesize}
+    </select>
+
+    <select id="queryCount" resultType="int">
+        select count(*) from tudent
+        <where>
+            <if test="username!=null">and username LIKE concat("%",#{username},"%")</if>
+            <if test="classid!=null">and clazz_id LIKE concat("%",#{clazzid},"%")</if>
+            <if test="studentid!=null">and id = #{studentid}</if>
+        </where>
+    </select>
+
+    <select id="stuCount" resultType="Integer">
+        select count(id) from student
+    </select>
+
+    <select id="findStudentByName" resultType="com.studentmanager.entity.Student">
+        select * from student where name like CONCAT(CONCAT('%',#{arg0}),'%') limit #{arg1},#{arg2}
+    </select>
+
+    <select id="findStudentById" resultType="com.studentmanager.entity.Student">
+        select * from student where id=#{id}
+    </select>
+
+    <delete id="deleteByForeach">
+        delete from student where username in
+        <foreach collection="list" item="num" open="(" close=")" separator=",">
+            #{num}
+        </foreach>
+    </delete>
+
+    <select id="findStudentByStudent" resultType="com.studentmanager.entity.Student">
+        select * from student order by username=#{username}
+    </select>
+
+    <select id="selectStudentInfoByUsername" resultType="Student">
+        select * from student where username=#{username}
+    </select>
+    <!-- 修改学生信息 -->
+    <update id="editStudent" parameterType="Student">
+        UPDATE student set s_name=#{s_name},password=#{password}
+        ,sex=#{sex},sCollege=#{sCollege},sprofessional=#{sProfessional},classId=#{classId}
+        where id=#{id}
+    </update>
+</mapper>

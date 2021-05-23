@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.studentmanager.mapper.CourseMapper">
+    <!-- 添加课程 -->
+    <insert id="coursesInsert" parameterType="Course">
+        INSERT into course(c_name,c_no,c_information,c_max)
+        values(#{c_name},#{c_no},#{c_information},#{c_max})
+    </insert>
+
+    <select id="queryList" resultType="com.studentmanager.entity.Course">
+        select * from course order by c_id limit #{start},#{pagesize}
+    </select>
+
+    <select id="CourseCount" resultType="Integer">
+        select count(c_id) from course
+    </select>
+
+    <select id="findCourseByName" resultType="com.studentmanager.entity.Course">
+        select * from course where c_name like CONCAT(CONCAT('%',#{arg0}),'%') limit #{arg1},#{arg2}
+    </select>
+
+    <delete id="deleteByForeach">
+        delete from course where c_name in
+        <foreach collection="list" item="num" open="(" close=")" separator=",">
+            #{num}
+        </foreach>
+    </delete>
+
+    <!-- 修改课程信息 -->
+    <update id="editCourse" parameterType="Course">
+        UPDATE course set
+        c_name=#{c_name},c_information=#{c_information},c_max=#{c_max}
+        where c_name=#{c_name},c_information=#{c_information},c_max=#{c_max}
+    </update>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.studentmanager.mapper.ScoreMapper">
+    <insert id="scoreInput" parameterType="Score">
+        INSERT into scores(scores,credit)
+        values(#{scores},#{credit}) where c_name = #{c_name}
+    </insert>
+
+    <select id="queryScore" resultType="Score">
+        SELECT score.id,student.s_name,course.c_name,score.scores,score.credit
+        FROM score,student,course,teacher order by id limit #{start},#{pagesize}
+    </select>
+
+    <select id="queryList" resultType="com.studentmanager.entity.Score">
+        select * from score order by id limit #{start},#{pagesize}
+    </select>
+
+    <select id="scoreCount" resultType="Integer">
+        select count(id) from score
+    </select>
+</mapper>
