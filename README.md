@@ -22,7 +22,7 @@
 
 ## 3.1、系统登陆界面：
 
-![wps1]((https://raw.githubusercontent.com/my-wjs/studentmanager/master/readme.md/wps1.jpg)
+![wps1](E:\毕设\图片\wps1.jpg)
 
 ## 3.2、用户登陆后的主界面：
 
