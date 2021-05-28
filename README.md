@@ -46,7 +46,7 @@
 
 ## 3.7、学生个人成绩页面：
 
-![image-20210523170336019](E:\毕设\图片\image-20210523170336019.png)
+![image-20210523170336019](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/image-20210523170336019.png)
 
 ## 3.8、学生选课页面：
 
