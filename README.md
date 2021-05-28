@@ -22,35 +22,35 @@
 
 ## 3.1、系统登陆界面：
 
-![wps1](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/wps1.jpg)
+![Image text](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/wps1.jpg)
 
 ## 3.2、用户登陆后的主界面：
 
-![image-20210523165859281](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/image-20210523165859281.png)
+![Image text](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/image-20210523165859281.png)
 
 ## 3.3、修改密码页面：
 
-![image-20210523165941778](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/image-20210523165941778.png)
+![Image text](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/image-20210523165941778.png)
 
 ## 3.4、学生信息页面：
 
-![image-20210523170053139](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/image-20210523170053139.png)
+![Image text](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/image-20210523170053139.png)
 
 ## 3.5、教师信息页面：
 
-![image-20210523170137891](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/image-20210523170137891.png)
+![Image text](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/image-20210523170137891.png)
 
 ## 3.6、课程信息页面：
 
-![image-20210523170222843](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/image-20210523170222843.png)
+![Image text](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/image-20210523170222843.png)
 
 ## 3.7、学生个人成绩页面：
 
-![image-20210523170336019](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/image-20210523170336019.png)
+![Image text](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/image-20210523170336019.png)
 
 ## 3.8、学生选课页面：
 
-![image-20210523170418260](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/image-20210523170418260.png)
+![Image text](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/image-20210523170418260.png)
 
 
 
