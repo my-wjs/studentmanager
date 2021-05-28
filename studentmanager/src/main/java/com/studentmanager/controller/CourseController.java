@@ -29,11 +29,13 @@ public class CourseController {
     private CourseService courseService;
 
     /**
-     * 添加课程
      *
      * @param request
      * @param response
+     * @param session
+     * @return
      */
+
     @RequestMapping("/addCourse")
     @ResponseBody
     public AjaxResult addCourse(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
