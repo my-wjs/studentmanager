@@ -22,7 +22,7 @@
 
 ## 3.1、系统登陆界面：
 
-![Image text](https://github.com/my-wjs/studentmanager/blob/master/studentmanager/src/main/resources/static/image/wps1.jpg)
+![Image text](https://github.com/my-wjs/studentmanager/blob/master/ImagesFolderForReadme/wps1.jpg)
 
 ## 3.2、用户登陆后的主界面：
 
